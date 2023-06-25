@@ -229,11 +229,11 @@
                                 </div>
 
                                 <!-- Image -->
-                                <div class="md:absolute md:left-[500px] md:top-[-155px] -mb-12 mt-0 md:mt-0 md:mb-0">
+                                <div class="md:absolute md:left-[500px] md:top-[-155px] md-left-500px md-top--155px -mb-12 mt-0 md:mt-0 md:mb-0">
                                     <div class="relative -mx-16 md:mx-0">
                                         <img class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 mt-16 md:mt-0 pointer-events-none -z-10 max-w-none mix-blend-lighten" src="./images/cards-illustration.svg" width="742" height="742" aria-hidden="true" />
                                         <div data-aos="fade-up" data-aos-anchor="[data-aos-id-2]">
-                                            <img src="./images/schoolchildb.png" class="mx-auto max-w-sm md:max-w-2xl" width="775" height="450" alt="Features 01" />
+                                            <img src="./images/schoolchildb.png" class="mx-auto max-w-sm md:max-w-2xl" width="775" alt="Features 01" />
                                         </div>
                                     </div>
                                 </div>
@@ -732,7 +732,7 @@
                                             </div>
                                             <span id="loan-repayment" class="mr-2 text-3xl font-bold"></span>/ <span id="payment-frequency"></span>
                                           </div>
-                                          <div class="mb-5">
+                                          <div class="mb-5 flex-1">
                                             <a class="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 shadow-sm" href="#0">Apply Now</a>
                                           </div>
                                         </div>
@@ -1227,7 +1227,20 @@
     padding: 10px 20px;
     box-sizing: border-box;
   }
-
+  @media (min-width: 768px) {
+  .md-left-500px {
+    left: 500px;
+  }
+  .md-top--155px {
+    top: -155px;
+  }
+}
+.flex-1 {
+  flex-grow: 1;
+}
+.border-r-0 {
+    border-right: 0!important;
+}
     </style>
 </body>
 
