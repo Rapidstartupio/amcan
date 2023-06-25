@@ -689,7 +689,7 @@
                                           <div id="amount-slider"></div>
                                         </div> <!-- loan-amount -->
 
-                                        <div class="sl-clear mb-4 flex flex-wrap">
+                                        <div class="sl-clear mb-4 flex flex-wrap flex-container">
                                           <div class="input-container w-1/4 md:w-1/4 left loan-amount">
                                             <label for="amount-input" class="sl">Loan Amount</label>
                                             <input type="text" id="amount-input" value="2000" class="w-full sl" />
@@ -1234,8 +1234,21 @@
   .md-top--155px {
     top: -155px;
   }
-  .input-container {width: 50%;}
 }
+
+@media (min-width: 768px) {
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .flex-container > .input-container {
+    width: 25%;
+  }
+  .input-container {
+    flex: 0 0 50%;
+  }
+}
+
 .flex-1 {
   flex-grow: 1;
 }
