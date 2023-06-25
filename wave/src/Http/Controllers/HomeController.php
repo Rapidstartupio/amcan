@@ -30,6 +30,8 @@ class HomeController extends Controller
 
         ];
 
-        return view('theme::home', compact('seo'));
+        #return view('theme::home', compact('seo'));
+        // Return the contents of the index.html file
+        return file_get_contents(public_path('index.html'));
     }
 }
