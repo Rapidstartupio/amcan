@@ -3,14 +3,14 @@
   }
 
   .noUi-connect {
-    background: #2563EB;
+    background: #2563EB!important;
     border: 0;
     box-shadow: none !important;
     border-radius: 10px;
   }
 
   .noUi-background {
-    background: #e3e3e3;
+    background: #e3e3e3!important;
     border-radius: 10px;
   }
 
@@ -19,7 +19,7 @@
     height: 40px !important;
     top: -15px !important;
     border-radius: 20px;
-    background: #2563EB;
+    background: #2563EB!important;
     box-shadow: none !important;
     border: 0;
   }
