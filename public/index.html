@@ -683,18 +683,20 @@
                                     <p class="text-lg text-slate-500 mb-8">Use our interactive calculator to customize your loan. Select your preferred amount, see the associated fee, and sign up right away. No hidden charges, just fair and transparent pricing.</p>
                                 </div>
                                     <!--NEW SECTION - Slider -->
-                                    <section id="calculator-wrapper" class="maxWrapper calculator max-w-3xl mx-auto p-6">
+                                    <div id="calculator-wrapper" class="maxWrapper calculator max-w-3xl mx-auto p-6">
+
                                         <div class="mb-8" id="loan-amount">
                                           <div id="amount-slider"></div>
                                         </div> <!-- loan-amount -->
-                                        <div class="clear mb-4 flex flex-row">
+
+                                        <div class="sl-clear mb-4 flex flex-row">
                                           <div class="input-container w-1/4 left loan-amount">
-                                            <label for="amount-input">Loan Amount</label>
-                                            <input type="text" id="amount-input" value="2000" class="w-full" />
+                                            <label for="amount-input" class="sl">Loan Amount</label>
+                                            <input type="text" id="amount-input" value="2000" class="w-full sl" />
                                           </div> <!-- input-container -->
                                           <div class="input-container w-1/4 left loan-term">
-                                            <label for="loan-term">Loan Term</label>
-                                            <select type="text" id="loan-term" class="w-full">
+                                            <label for="loan-term" class="sl">Loan Term</label>
+                                            <select type="text" id="loan-term" class="w-full sl">
                                               <option value="1">1 year</option>
                                               <option value="2">2 years</option>
                                               <option selected value="3">3 years</option>
@@ -704,18 +706,19 @@
                                           </div>
                                           <!-- input-container -->
                                           <div class="input-container w-1/4 left fixed-fee">
-                                            <label for="fixed-fee">Fixed Fee</label>
-                                            <input type="text" id="fixed-fee" placeholder="fee" value="100" disabled class="w-full" />
+                                            <label for="fixed-fee" class="sl">Fixed Fee</label>
+                                            <input type="text" id="fixed-fee" placeholder="fee" value="100" disabled class="sl w-full" />
                                           </div>
                                           <div class="input-container mb-4 w-1/4 left loan-frequency">
                                             <label for="loan-frequency">Payment Frequency</label>
-                                            <select type="text" id="loan-frequency" class="border-r-0 w-full">
+                                            <select type="text" id="loan-frequency" class="border-r-0 w-full sl">
                                               <option value="4">Weekly</option>
                                               <option value="2">Fortnightly</option>
                                               <option selected value="1">Monthly</option>
                                               </select>
                                           </div> <!-- input-container -->
                                         </div> <!-- clear -->
+
                                         <div class="output mb-4 pt-4 flex flex-row">
                                           <div class="loan-total mb-2 text-xs flex-1">
                                             <div class="title mb-2 text-xs">
@@ -732,12 +735,12 @@
                                           <div class="mb-5">
                                             <a class="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 shadow-sm" href="#0">Apply Now</a>
                                           </div>
-
                                         </div>
+
                                         <div class="info text-xs">
                                           <p>This calculator uses the special online-only fixed fee loan.</p>
                                         </div>
-                                            </section>
+                                    </div>
 
                                             <!-- Pricing tables -->
                                 <div class="max-w-sm md:max-w-2xl xl:max-w-none mx-auto grid gap-8 md:grid-cols-2 xl:grid-cols-4 xl:gap-6 items-start" data-aos="fade-up" data-aos-delay="100">

@@ -32,23 +32,23 @@
     opacity: 0;
   }
 
-  .clear:after {
+  .sl-clear:after {
     content: "";
     display: table;
     clear: both;
   }
 
-  input,
-  select,
-  label {
+  .sl input,
+  .sl select,
+  .sl label {
     width: 100%;
   }
 
-  input:disabled {
+  .sl input:disabled {
     background: #efefef;
   }
 
-  label {
+  .sl label {
     display: inline-block;
     font-size: 12px;
     font-weight: 300;
@@ -56,8 +56,8 @@
     color: #3a3a3a;
   }
 
-  input,
-  select {
+  .sl input,
+  .sl select {
     -webkit-appearance: none;
     outline: none;
     background: #fff;
