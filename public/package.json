@@ -6,8 +6,8 @@
   "author": "Pasquale Vitiello",
   "license": "https://cruip.com/terms/",
   "scripts": {
-    "dev": "npx tailwindcss -i ./css/style.css -o ./css/style.css && npx tailwindcss -i ./css/loan.css -o ./css/loan.css --watch",
-    "build": "npx tailwindcss -i ./css/style.css -o ./css/style.css && npx tailwindcss -i ./css/loan.css -o ./css/loan.css"
+    "dev": "npx tailwindcss -i ./css/style.css -o ./style.css",
+    "build": "npx tailwindcss -i ./css/style.css -o ./style.css"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
