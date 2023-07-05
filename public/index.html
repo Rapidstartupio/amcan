@@ -13,6 +13,79 @@
 </head>
 
 <body class="font-aspekta antialiased bg-white text-slate-800 font-[350]">
+    <!-- TEMP FORM POPUP <button onclick="openLightbox()">Open Lightbox</button> -->
+        <div id="lightbox" style="display: none;">
+        <div id="lightbox-content">
+            <div id="close-button" onclick="closeLightbox()">
+            <span class="close-icon">X</span>
+            </div>
+            <iframe src="https://link.marketingmadness.app/widget/form/pskDucETXmCk1Fkl9onG" style="display: block; width: 100%; height: 100%; border: none; border-radius: 4px" id="popup-pskDucETXmCk1Fkl9onG" data-layout="{'id':'POPUP'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Landing Page Details" data-height="432" data-layout-iframe-id="popup-pskDucETXmCk1Fkl9onG" data-form-id="pskDucETXmCk1Fkl9onG" title="Landing Page Details"></iframe>
+        </div>
+        </div>
+
+        <style>
+        #lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        }
+
+        #lightbox-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        }
+
+        #close-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 8%;
+        right: 35%;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: white;
+        cursor: pointer;
+        }
+
+        .close-icon {
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+        }
+
+        iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 4px;
+        }
+        </style>
+
+        <script>
+        function openLightbox() {
+        var lightbox = document.getElementById('lightbox');
+        lightbox.style.display = 'block';
+        }
+
+        function closeLightbox() {
+        var lightbox = document.getElementById('lightbox');
+        lightbox.style.display = 'none';
+        }
+        </script>
 
     <!-- Page wrapper -->
     <div class="flex flex-col min-h-screen overflow-hidden">
@@ -36,7 +109,7 @@
                         <!-- Desktop sign in links -->
                         <ul class="flex grow justify-end flex-wrap items-center">
                             <li class="ml-3">
-                                <a class="btn-sm inline-flex items-center text-slate-100 bg-slate-800 hover:bg-slate-900 group shadow-sm" href="apply.html">
+                                <a class="btn-sm inline-flex items-center text-slate-100 bg-slate-800 hover:bg-slate-900 group shadow-sm" onclick="openLightbox()" href="#">
                                     Get your loan
                                     <span class="tracking-normal text-sky-400 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                                         <svg class="fill-current" width="12" height="10" xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +156,7 @@
                                 <!-- Buttons -->
                                 <div class="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 md:mb-0" data-aos="fade-up" data-aos-delay="300">
                                     <div>
-                                        <a class="btn-sm w-full inline-flex items-center text-slate-100 bg-slate-800 hover:bg-slate-900 group shadow-sm" href="apply.html">
+                                        <a class="btn-sm w-full inline-flex items-center text-slate-100 bg-slate-800 hover:bg-slate-900 group shadow-sm" onclick="openLightbox()" href="#">
                                             Apply For Loan
                                             <span class="tracking-normal text-sky-400 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                                                 <svg class="fill-current" width="12" height="10" xmlns="http://www.w3.org/2000/svg">
@@ -269,7 +342,7 @@
                                     <!-- Button -->
                                     <div class="max-w-xs mx-auto sm:max-w-none mb-8" data-aos="fade-up" data-aos-anchor="[data-aos-id-3]" data-aos-delay="300">
                                         <div>
-                                            <a class="btn-sm inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 group shadow-sm" href="apply.html">
+                                            <a class="btn-sm inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 group shadow-sm" onclick="openLightbox()" href="#">
                                                 Get your loan
                                                 <span class="tracking-normal text-sky-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                                                     <svg class="fill-current" width="12" height="10" xmlns="http://www.w3.org/2000/svg">
@@ -459,7 +532,7 @@
                                     <!-- Button -->
                                     <div class="max-w-xs mx-auto sm:max-w-none" data-aos="fade-up" data-aos-anchor="[data-aos-id-4]" data-aos-delay="300">
                                         <div>
-                                            <a class="btn-sm inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 group shadow-sm" href="apply.html">
+                                            <a class="btn-sm inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 group shadow-sm" onclick="openLightbox()" href="#">
                                                 Get your loan
                                                 <span class="tracking-normal text-sky-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                                                     <svg class="fill-current" width="12" height="10" xmlns="http://www.w3.org/2000/svg">
@@ -733,7 +806,7 @@
                                             <span id="loan-repayment" class="mr-2 text-4xl font-bold"></span>/ <span id="payment-frequency"></span>
                                           </div>
                                           <div class="mt-4 flex-1">
-                                            <a class="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 shadow-sm" href="#0">Apply Now</a>
+                                            <a class="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 shadow-sm" onclick="openLightbox()" href="#">Apply Now</a>
                                           </div>
                                         </div>
 
