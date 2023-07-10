@@ -4,7 +4,7 @@
 
 <div class="clearfix container-fluid row" style="position:relative; top:10px;">
     <div class="col-xs-12 col-md-6 col-lg-4">
-        <div class="bg-green-400 panel widget center bgimage" style="border-radius:6px; position:relative; overflow:hidden; background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);">
+        <!--<div class="bg-green-400 panel widget center bgimage" style="border-radius:6px; position:relative; overflow:hidden; background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);">
             <div style="width:100%; height:40px; display:flex; position:relative; z-index:20; justify-content: start; color:#fff;">
                 <img src="{{ Storage::url('/settings/April2021/deploy-to-do.png') }}" class="hidden-md" style="width:40px; height:40px;">
                 <div class="relative" style="margin-left:14px; text-align:left;">
@@ -16,10 +16,10 @@
                 </a>
             </div>
             <img src="{{ Storage::url('/settings/April2021/digital-ocean.png') }}" style="width:130px; z-index:10; height:auto; top:10px; right:140px; opacity:30%; position:absolute;">
-        </div>
+        </div>-->
     </div>
     <div class="col-xs-12 col-md-6 col-lg-4">
-        <div class="bg-green-400 panel widget center bgimage" style="border-radius:6px; position:relative; overflow:hidden; background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);">
+        <!--<div class="bg-green-400 panel widget center bgimage" style="border-radius:6px; position:relative; overflow:hidden; background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);">
             <div style="width:100%; height:40px; display:flex; position:relative; z-index:20; justify-content: start; color:#fff;">
                 <img src="{{ Storage::url('/settings/April2021/play-icon.png') }}" class="hidden-md" style="width:40px; height:40px;">
                 <div class="relative" style="margin-left:14px; text-align:left;">
@@ -31,10 +31,10 @@
                 </a>
             </div>
             <img src="{{ Storage::url('/settings/April2021/popcorn-soda-icon.png') }}" style="width:80px; z-index:10; height:auto; bottom:-30px; right:5px; position:absolute;">
-        </div>
+        </div>-->
     </div>
     <div class="col-xs-12 col-md-6 col-lg-4">
-        <div class="bg-green-400 panel widget center bgimage" style="border-radius:6px; position:relative; overflow:hidden; background-image: url('{{ Storage::url('/settings/April2021/tails-bg.png') }}'); background-size:cover;">
+        <!--<div class="bg-green-400 panel widget center bgimage" style="border-radius:6px; position:relative; overflow:hidden; background-image: url('{{ Storage::url('/settings/April2021/tails-bg.png') }}'); background-size:cover;">
             <div style="width:100%; height:40px; display:flex; position:relative; z-index:20; justify-content: start; color:#fff;">
                 <img src="{{ Storage::url('/settings/April2021/tails-icon.png') }}" class="hidden-md" style="width:40px; height:40px;">
                 <div class="relative" style="margin-left:14px; text-align:left;">
@@ -45,7 +45,7 @@
                     Create Now
                 </a>
             </div>
-        </div>
+        </div>-->
     </div>
 
 
