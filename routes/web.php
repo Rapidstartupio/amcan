@@ -26,3 +26,6 @@ Route::group(['prefix' => 'admin'], function () {
 
 // Wave routes
 Wave::routes();
+
+// Onboarding Route
+Route::get('onboarding/{step?}', '\App\Http\Controllers\OnboardingController@index')->name('onboarding.step');

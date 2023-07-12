@@ -83,8 +83,11 @@
 
         <script>
         function openLightbox() {
-        var lightbox = document.getElementById('lightbox');
-        lightbox.style.display = 'block';
+            //redirect to onboarding steps
+            window.location.replace("/onboarding/01");
+            return;
+            var lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'block';
         }
 
         function closeLightbox() {
