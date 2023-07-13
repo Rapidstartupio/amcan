@@ -1,57 +1,8 @@
+@extends('theme::layouts.empty')
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="Potee7gPfKVH91PacKUPfmdnGzKagY5qDyrghbVu">
+@section('content')
 
-        <title>PlatinumPlusCapitalAdmin</title>
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
-        <!-- Livewire Styles -->
-<style >
-    [wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid], [wire\:loading\.inline-flex] {
-        display: none;
-    }
-
-    [wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {
-        display:none;
-    }
-
-    [wire\:offline] {
-        display: none;
-    }
-
-    [wire\:dirty]:not(textarea):not(input):not(select) {
-        display: none;
-    }
-
-    input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {
-        animation-duration: 50000s;
-        animation-name: livewireautofill;
-    }
-
-    @keyframes livewireautofill { from {} }
-</style>
-
-        <!-- Scripts -->
-        <link rel="preload" as="style" href="http://platinumpluscapital.rapidstartup.io/build/assets/app-b076542d.css" /><link rel="modulepreload" href="http://platinumpluscapital.rapidstartup.io/build/assets/app-ce9f0651.js" /><link rel="stylesheet" href="http://platinumpluscapital.rapidstartup.io/build/assets/app-b076542d.css" /><script type="module" src="http://platinumpluscapital.rapidstartup.io/build/assets/app-ce9f0651.js"></script>        <script>
-            if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
-                document.querySelector('html').classList.remove('dark');
-                document.querySelector('html').style.colorScheme = 'light';
-            } else {
-                document.querySelector('html').classList.add('dark');
-                document.querySelector('html').style.colorScheme = 'dark';
-            }
-        </script>          
-    </head>
-    <body class="font-inter antialiased bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400">
-
-        <main class="bg-white dark:bg-slate-900">
+<main class="bg-white dark:bg-slate-900">
 
         <div class="relative flex">
 
@@ -84,7 +35,7 @@
                                 </svg>
                             </a>
                             <div class="text-sm">
-                                Have an account? <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="/login">Sign In</a>
+                                Have an account? <a class="font-medium text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400" href="{{ route('login') }}">Sign In</a>
                             </div>
                         </div>
 
@@ -95,16 +46,16 @@
                                     <div class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-slate-200 dark:bg-slate-700" aria-hidden="true"></div>
                                     <ul class="relative flex justify-between w-full">
                                         <li>
-                                            <a class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" href="/onboarding/01">1</a>
+                                            <a class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" href="{{ route('onboarding.step','01') }}">1</a>
                                         </li>
                                         <li>
-                                            <a class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" href="/onboarding/02">2</a>
+                                            <a class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" href="{{ route('onboarding.step','02') }}">2</a>
                                         </li>
                                         <li>
-                                            <a class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" href="/onboarding/03">3</a>
+                                            <a class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" href="{{ route('onboarding.step','03') }}">3</a>
                                         </li>
                                         <li>
-                                            <a class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" href="/onboarding/04">4</a>
+                                            <a class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" href="{{ route('onboarding.step','04') }}">4</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -121,7 +72,7 @@
                                     <path class="text-emerald-500 dark:text-emerald-400" d="m28.5 41-8-8 3-3 5 5 12-12 3 3z" />
                                 </svg>
                                 <h1 class="text-3xl text-slate-800 dark:text-slate-100 font-bold mb-8">Nice to have you, Acme Inc. 🙌</h1>
-                                <a class="btn bg-indigo-500 hover:bg-indigo-600 text-white" href="/register">Go To Dashboard -&gt;</a>
+                                <a class="btn bg-indigo-500 hover:bg-indigo-600 text-white" href="{{ route('register') }}">Go To Dashboard -&gt;</a>
                             </div>
     
                         </div>
@@ -133,13 +84,13 @@
 
             <!-- Image -->
             <div class="hidden md:block absolute top-0 bottom-0 right-0 md:w-1/2" aria-hidden="true">
-                <img class="object-cover object-center w-full h-full" src="http://platinumpluscapital.rapidstartup.io/images/onboarding-image.jpg" width="760" height="1024" alt="Onboarding" />
-                <img class="absolute top-1/4 left-0 -translate-x-1/2 ml-8 hidden lg:block" src="http://platinumpluscapital.rapidstartup.io/images/auth-decoration.png" width="218" height="224" alt="Authentication decoration" />
+                <img class="object-cover object-center w-full h-full" src="{{ asset('images/onboarding-image.jpg') }}" width="760" height="1024" alt="Onboarding" />
+                <img class="absolute top-1/4 left-0 -translate-x-1/2 ml-8 hidden lg:block" src="{{ asset('images/auth-decoration.png') }}" width="218" height="224" alt="Authentication decoration" />
             </div>
 
         </div>
 
     </main>
 
-    </body>
-</html>
+
+@endsection
