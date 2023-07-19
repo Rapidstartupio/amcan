@@ -15,10 +15,14 @@ use Wave\KeyValue;
 class SettingsController extends Controller
 {
     public function index($section = ''){
+        $card_header = true;
         if(empty($section)){
             return redirect(route('wave.settings', 'profile'));
         }
-        return view('theme::settings.index', compact('section'));
+        if($section == "loan"){
+            $card_header = false;
+        }
+        return view('theme::settings.index', compact('section','card_header'));
     }
 
     public function profilePut(Request $request){

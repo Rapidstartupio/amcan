@@ -42,6 +42,9 @@
         <meta name="description" content="{{ $seo->description }}">
     @endif
 
+    
+    <!-- Loan -->
+    <link rel="stylesheet" href="{{ asset('/css/build/app-b076542d.css') }}" />
     <!-- Styles -->
     <link href="{{ asset('themes/' . $theme->folder . '/css/app.css') }}" rel="stylesheet">
 </head>
