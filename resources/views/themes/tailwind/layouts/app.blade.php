@@ -42,7 +42,7 @@
         <meta name="description" content="{{ $seo->description }}">
     @endif
 
-    
+
     <!-- Loan -->
     <link rel="stylesheet" href="{{ asset('/css/build/app-b076542d.css') }}" />
     <!-- Styles -->
@@ -64,9 +64,9 @@
 
     @include('theme::partials.footer')
 
-    @if(config('wave.dev_bar'))
+    <!--@if(config('wave.dev_bar'))
         @include('theme::partials.dev_bar')
-    @endif
+    @endif-->
 
     <!-- Full Screen Loader -->
     <div id="fullscreenLoader" class="fixed inset-0 top-0 left-0 z-50 flex flex-col items-center justify-center hidden w-full h-full bg-gray-900 opacity-50">
