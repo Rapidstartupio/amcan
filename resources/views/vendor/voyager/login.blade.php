@@ -25,7 +25,7 @@
                     </div>
                 @endif
 
-                <div class="overflow-hidden bg-white shadow-xl mt-7 rounded-xl">
+                <div class="overflow-hidden bg-white dark:bg-gray-800 shadow-xl mt-7 rounded-xl">
                     <div class="flex items-center justify-start h-24 px-8 space-x-5 font-bold text-white bg-gradient-to-r from-blue-500 to-blue-600">
                         <?php $admin_logo_img = Voyager::setting('admin.icon_image', ''); ?>
                         @if($admin_logo_img == '')

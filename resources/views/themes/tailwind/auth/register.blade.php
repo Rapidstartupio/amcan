@@ -2,12 +2,11 @@
 
 @section('content')
 
-
     <div class="sm:mx-auto sm:w-full sm:max-w-md sm:pt-10">
-        <h2 class="text-3xl font-extrabold leading-9 text-center text-gray-900 sm:mt-6 lg:text-5xl">
+        <h2 class="text-3xl font-extrabold leading-9 text-center text-gray-900 dark:text-white sm:mt-6 lg:text-5xl">
             Sign up Below
         </h2>
-        <p class="mt-4 text-sm leading-5 text-center text-gray-600 max-w">
+        <p class="mt-4 text-sm leading-5 text-center text-gray-600 dark:text-gray-400 max-w">
             or, you can
             <a href="{{ route('login') }}" class="font-medium transition duration-150 ease-in-out text-wave-600 hover:text-wave-500 focus:outline-none focus:underline">
                 login here
@@ -19,16 +18,16 @@
 
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div class="px-4 py-8 bg-white border shadow border-gray-50 sm:rounded-lg sm:px-10">
+            <div class="px-4 py-8 bg-white dark:bg-gray-800 border shadow border-gray-50 dark:border-gray-700 sm:rounded-lg sm:px-10">
                 <form role="form" method="POST" action="@if(setting('billing.card_upfront')){{ route('wave.register-subscribe') }}@else{{ route('register') }}@endif">
                     @csrf
                     <!-- If we want the user to purchase before they can create an account -->
 
                     <div class="pb-3 sm:border-b sm:border-gray-200">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">
+                        <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">
                             Profile
                         </h3>
-                        <p class="max-w-2xl mt-1 text-sm leading-5 text-gray-500">
+                        <p class="max-w-2xl mt-1 text-sm leading-5 text-gray-500 dark:text-gray-400">
                             Information about your account.
                         </p>
                     </div>
@@ -36,11 +35,11 @@
                     @csrf
 
                     <div class="mt-6">
-                        <label for="name" class="block text-sm font-medium leading-5 text-gray-700">
+                        <label for="name" class="block text-sm font-medium leading-5 text-gray-700 dark:text-white">
                             Name
                         </label>
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="name" type="text" name="name" required class="w-full form-input" value="{{ old('name') }}" @if(!setting('billing.card_upfront')){{ 'autofocus' }}@endif>
+                            <input id="name" type="text" name="name" required class="w-full form-input dark:bg-gray-900" value="{{ old('name') }}" @if(!setting('billing.card_upfront')){{ 'autofocus' }}@endif>
                         </div>
                         @if ($errors->has('name'))
                             <div class="mt-1 text-red-500">
@@ -51,11 +50,11 @@
 
                     @if(setting('auth.username_in_registration') && setting('auth.username_in_registration') == 'yes')
                         <div class="mt-6">
-                            <label for="username" class="block text-sm font-medium leading-5 text-gray-700">
+                            <label for="username" class="block text-sm font-medium leading-5 text-gray-700 dark:text-white">
                                 Username
                             </label>
                             <div class="mt-1 rounded-md shadow-sm">
-                                <input id="username" type="text" name="username" value="{{ old('username') }}" required class="w-full form-input">
+                                <input id="username" type="text" name="username" value="{{ old('username') }}" required class="w-full form-input dark:bg-gray-900">
                             </div>
                             @if ($errors->has('username'))
                                 <div class="mt-1 text-red-500">
@@ -66,11 +65,11 @@
                     @endif
 
                     <div class="mt-6">
-                        <label for="email" class="block text-sm font-medium leading-5 text-gray-700">
+                        <label for="email" class="block text-sm font-medium leading-5 text-gray-700 dark:text-white">
                             Email Address
                         </label>
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="email" type="email" name="email" value="{{ old('email') }}" required class="w-full form-input">
+                            <input id="email" type="email" name="email" value="{{ old('email') }}" required class="w-full form-input dark:bg-gray-900">
                         </div>
                         @if ($errors->has('email'))
                             <div class="mt-1 text-red-500">
@@ -80,11 +79,11 @@
                     </div>
 
                     <div class="mt-6">
-                        <label for="password" class="block text-sm font-medium leading-5 text-gray-700">
+                        <label for="password" class="block text-sm font-medium leading-5 text-gray-700 dark:text-white">
                             Password
                         </label>
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="password" type="password" name="password" required class="w-full form-input">
+                            <input id="password" type="password" name="password" required class="w-full form-input dark:bg-gray-900">
                         </div>
                         @if ($errors->has('password'))
                             <div class="mt-1 text-red-500">
@@ -94,11 +93,11 @@
                     </div>
 
                     <div class="mt-6">
-                        <label for="password_confirmation" class="block text-sm font-medium leading-5 text-gray-700">
+                        <label for="password_confirmation" class="block text-sm font-medium leading-5 text-gray-700 dark:text-white">
                             Confirm Password
                         </label>
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="password_confirmation" type="password" name="password_confirmation" required class="w-full form-input">
+                            <input id="password_confirmation" type="password" name="password_confirmation" required class="w-full form-input dark:bg-gray-900">
                         </div>
                         @if ($errors->has('password_confirmation'))
                             <div class="mt-1 text-red-500">
