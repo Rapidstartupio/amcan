@@ -1,14 +1,6 @@
     <!DOCTYPE html>
     <html lang="{{ app()->getLocale() }}  " class="dark">
     <head>
-        <script>
-            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark')
-            }
-        </script>
         @if(isset($seo->title))
             <title>{{ $seo->title }}</title>
         @else
@@ -55,7 +47,7 @@
         <link href="{{ asset('themes/' . $theme->folder . '/css/app.css') }}" rel="stylesheet">
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="flex flex-col min-h-screen @if(Request::is('/')){{ 'bg-white' }}@else{{ 'bg-gray-50' }}@endif @if(config('wave.dev_bar')){{ 'pb-10' }}@endif bg-white dark:bg-black">
+    <body class="flex flex-col min-h-screen @if(Request::is('/')){{ 'bg-white' }}@else{{ 'bg-gray-50' }}@endif @if(config('wave.dev_bar')){{ 'pb-10' }}@endif bg-white">
 
         @if(config('wave.demo') && Request::is('/'))
             @include('theme::partials.demo-header')
@@ -63,7 +55,7 @@
 
         @include('theme::partials.header')
 
-        <main class="flex-grow overflow-x-hidden">
+        <main class="flex-grow overflow-x-hidden overflow-y-hidden">
             @yield('content')
         </main>
 
@@ -137,4 +129,3 @@
 
     </body>
     </html>
-     

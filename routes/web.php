@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
 use Wave\Facades\Wave;
+use App\Http\Controllers\Dashboard\LoanController;
+use App\Http\Controllers\Dashboard\CreditHealthController;
+use App\Http\Controllers\Dashboard\TransactionController;
+
 
 // Authentication routes
 Auth::routes();
@@ -26,6 +30,14 @@ Route::group(['prefix' => 'admin'], function () {
 
 // Wave routes
 Wave::routes();
+
+// Loan Routes
+Route::get('dashboard/loan', [LoanController::class, 'index'])->name('loan.index');
+// Credit Health Routes
+Route::get('dashboard/credit-health', [CreditHealthController::class, 'index'])->name('credit-health.index');
+// Transaction Routes
+Route::get('dashboard/transactions', [TransactionController::class, 'index'])->name('transaction.index');
+Route::get('dashboard/transaction/{id}', [TransactionController::class, 'view'])->name('transaction.view');
 
 // Onboarding Route
 Route::get('onboarding/{step?}', '\App\Http\Controllers\OnboardingController@index')->name('onboarding.step');

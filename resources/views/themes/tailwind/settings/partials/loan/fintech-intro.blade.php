@@ -1,4 +1,4 @@
-<div class="flex flex-col col-span-full bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
+<div class="flex flex-col col-span-full bg-white  shadow-lg rounded-sm border border-slate-200 ">
     <div class="px-5 py-6">
 
         <div class="md:flex md:justify-between md:items-center">
@@ -10,7 +10,7 @@
                 </div>
                 <!-- User info -->
                 <div>
-                    <div class="mb-2">Hey <strong class="font-medium text-slate-800 dark:text-slate-100">Mary</strong> 👋, this is your current balance:</div>
+                    <div class="mb-2">Hey <strong class="font-medium text-slate-800">Mary</strong> 👋, this is your current balance:</div>
                     <div class="text-3xl font-bold text-emerald-500">$47,347.09</div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li>
-                    <button class="flex justify-center items-center w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500 shadow-sm transition duration-150">
+                    <button class="flex justify-center items-center w-9 h-9 rounded-full bg-white border border-slate-200 hover:border-slate-300 text-indigo-500 shadow-sm transition duration-150">
                         <span class="sr-only">Add new user</span>
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 16 16">
                             <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
