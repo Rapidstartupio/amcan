@@ -5,9 +5,10 @@
 
     <style>
         #right-panel {
-            height: 670px;
+            height: 675px;
         }
-        #fintech-loan-sections {
+        #fintech-loan-sections 
+        {
             margin: 20px;
         }
         .recent-repayment-table {
