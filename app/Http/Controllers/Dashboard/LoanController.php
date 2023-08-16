@@ -10,6 +10,7 @@ use Carbon\Carbon;
 class LoanController extends Controller
 {
     public function index() {
+
         $transactions = Transaction::limit(3)->get();
 
         $months = array();

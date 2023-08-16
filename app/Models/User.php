@@ -44,4 +44,11 @@ class User extends Authenticatable
     protected $casts = [
         'trial_ends_at' => 'datetime',
     ];
+
+    public function isAdmin() {
+        return $this->roles()->where('name', 'Admin')->exists();
+     }
+
+
+
 }
