@@ -218,21 +218,21 @@
 
     // Create Loan amount Slider
     noUiSlider.create(amountSlider, {
-      start: 2000,
-      step: 500,
-      behaviour: "snap",
-      connect: "lower",
-      range: {
-        min: 500,
-        max: 5000
-      },
-      format: wNumb({
-        mark: ".",
-        decimals: 0,
-        thousand: ",",
-        prefix: "$"
-      })
-    });
+        start: 30,
+        connect: "lower",
+        range: {
+          min: 30,
+          '33%': 60,
+          max: 100
+        },
+        snap: true,
+        format: wNumb({
+          mark: ".",
+          decimals: 0,
+          thousand: ",",
+          prefix: "$"
+        })
+      });
 
     // On Update pass Amount Slider value to Amount Input
     amountSlider.noUiSlider.on("update", function (values, handle) {
@@ -251,7 +251,7 @@
       calculate();
     });
 
-    function calculate() {
+    /*function calculate() {
       // Store elements in calculator
       // Store elements in calculator
       var amountRaw = amountInput.value;
@@ -297,6 +297,20 @@
       } else {
         intervalOutput.innerHTML = "per week";
       }
+    }*/
+
+    function calculate() {
+        var loanRepaymentAmount = parseFloat(amountInput.value.replace('$', '')) || 0;
+        var loanTermMonths = 24; // Fixed term at 24 months
+        var fixedFee = 99; // Fixed fee at $99
+        var totalLoan = (loanRepaymentAmount * loanTermMonths) + fixedFee;
+
+        // Update the total loan amount element
+        document.getElementById("loan-total").innerHTML = "$" + formatNumber(totalLoan);
+
+        // Update the loan repayment
+        document.getElementById("loan-repayment").innerHTML = "$" + loanRepaymentAmount;
+        document.getElementById("payment-frequency").innerHTML = "per month";
     }
 
     function formatNumber(number) {
