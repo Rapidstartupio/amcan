@@ -84,8 +84,8 @@
         <script>
         function openLightbox() {
             //redirect to onboarding steps
-            window.location.replace("/onboarding/01");
-            return;
+            //window.location.replace("/onboarding/01");
+            //return;
             var lightbox = document.getElementById('lightbox');
             lightbox.style.display = 'block';
         }
@@ -118,7 +118,7 @@
                         <!-- Desktop sign in links -->
                         <ul class="flex grow justify-end flex-wrap items-center">
                             <li class="ml-3">
-                                <a class="btn-sm inline-flex items-center text-slate-100 bg-slate-800 hover:bg-slate-900 group shadow-sm" onclick="openLightbox()" href="#">
+                                <a class="btn-sm inline-flex items-center text-slate-100 bg-slate-800 hover:bg-slate-900 group shadow-sm" onclick="/onboarding/01" href="#">
                                     Get your loan
                                     <span class="tracking-normal text-sky-400 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                                         <svg class="fill-current" width="12" height="10" xmlns="http://www.w3.org/2000/svg">
@@ -165,8 +165,8 @@
                                 <!-- Buttons -->
                                 <div class="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 md:mb-0" data-aos="fade-up" data-aos-delay="300">
                                     <div>
-                                        <a class="btn-sm w-full inline-flex items-center text-slate-100 bg-slate-800 hover:bg-slate-900 group shadow-sm" onclick="openLightbox()" href="#">
-                                            Apply For Loan
+                                        <a class="btn-sm w-full inline-flex items-center text-slate-100 bg-slate-800 hover:bg-slate-900 group shadow-sm" href="/onboarding/01">
+                                            Start Your Account
                                             <span class="tracking-normal text-sky-400 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                                                 <svg class="fill-current" width="12" height="10" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M1 6.002h7.586L6.293 8.295a1 1 0 1 0 1.414 1.414l4-4a1 1 0 0 0 0-1.416l-4-4a1 1 0 0 0-1.414 1.416l2.293 2.293H1a1 1 0 1 0 0 2Z" />
@@ -175,7 +175,7 @@
                                         </a>
                                     </div>
                                     <div>
-                                        <a class="btn-sm w-full inline-flex items-center text-white bg-gradient-to-tr from-blue-400 hover:bg-blue-500 shadow-sm relative before:absolute before:inset-0 before:bg-blue-400 before:bg-opacity-60 before:-z-10 before:rounded-full" onclick="openLightbox()" href="#">How Does It Work?</a>
+                                        <a class="btn-sm w-full inline-flex items-center text-white bg-gradient-to-tr from-blue-400 hover:bg-blue-500 shadow-sm relative before:absolute before:inset-0 before:bg-blue-400 before:bg-opacity-60 before:-z-10 before:rounded-full" href="#howitworks">How Does It Work?</a>
                                     </div>
                                 </div>
                             </div>
@@ -287,8 +287,8 @@
                                     <!-- Button -->
                                     <div class="max-w-xs mx-auto sm:max-w-none mb-8" data-aos="fade-up" data-aos-anchor="[data-aos-id-2]" data-aos-delay="300">
                                         <div>
-                                            <a class="btn-sm inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 group shadow-sm" onclick="openLightbox()" href="#">
-                                                Get your card
+                                            <a class="btn-sm inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 group shadow-sm" href="/onboarding/01">
+                                                Get your loan
                                                 <span class="tracking-normal text-sky-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                                                     <svg class="fill-current" width="12" height="10" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M1 6.002h7.586L6.293 8.295a1 1 0 1 0 1.414 1.414l4-4a1 1 0 0 0 0-1.416l-4-4a1 1 0 0 0-1.414 1.416l2.293 2.293H1a1 1 0 1 0 0 2Z" />
@@ -345,13 +345,13 @@
                                 <div class="w-[512px] max-w-full shrink-0 md:order-1">
 
                                     <!-- Copy -->
-                                    <h2 class="h2 mb-4" data-aos="fade-up" data-aos-anchor="[data-aos-id-3]" data-aos-delay="100">Credit Solutions for Worldwise Immigrants To US/Canada</h2>
+                                    <h2 class="h2 mb-4" data-aos="fade-up" data-aos-anchor="[data-aos-id-3]" data-aos-delay="100">Credit Solutions for Worldwide Immigrants To US/Canada</h2>
                                     <p class="text-lg text-slate-500 mb-8" data-aos="fade-up" data-aos-anchor="[data-aos-id-3]" data-aos-delay="200">No matter where you're from, AmCan is here to support your financial journey in the United States and Canada. Start building your credit history with us today.</p>
 
                                     <!-- Button -->
                                     <div class="max-w-xs mx-auto sm:max-w-none mb-8" data-aos="fade-up" data-aos-anchor="[data-aos-id-3]" data-aos-delay="300">
                                         <div>
-                                            <a class="btn-sm inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 group shadow-sm" onclick="openLightbox()" href="#">
+                                            <a class="btn-sm inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 group shadow-sm" href="/onboarding/01">
                                                 Get your loan
                                                 <span class="tracking-normal text-sky-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                                                     <svg class="fill-current" width="12" height="10" xmlns="http://www.w3.org/2000/svg">
@@ -541,7 +541,7 @@
                                     <!-- Button -->
                                     <div class="max-w-xs mx-auto sm:max-w-none" data-aos="fade-up" data-aos-anchor="[data-aos-id-4]" data-aos-delay="300">
                                         <div>
-                                            <a class="btn-sm inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 group shadow-sm" onclick="openLightbox()" href="#">
+                                            <a class="btn-sm inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 group shadow-sm" href="/onboarding/01">
                                                 Get your loan
                                                 <span class="tracking-normal text-sky-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                                                     <svg class="fill-current" width="12" height="10" xmlns="http://www.w3.org/2000/svg">
@@ -570,7 +570,7 @@
             </section>
 
             <!-- Section #5 -->
-            <section>
+            <section id="howitworks">
                 <div class="relative max-w-7xl mx-auto">
 
                     <!-- Bg -->
@@ -764,67 +764,7 @@
                                     <h2 class="h2 mb-4">Tailored Loans, Clear Pricing, Repayments You Can Manage</h2>
                                     <p class="text-lg text-slate-500 mb-8">Use our interactive calculator to customize your loan. Select your preferred amount, see the associated fee, and sign up right away. No hidden charges, just fair and transparent pricing.</p>
                                 </div>
-                                    <!--NEW SECTION - Slider -->
-                                    <div id="calculator-wrapper" class="maxWrapper calculator max-w-3xl mx-auto p-6">
-
-                                        <div class="mb-8" id="loan-amount">
-                                          <div id="amount-slider"></div>
-                                        </div> <!-- loan-amount -->
-
-                                        <div class="sl-clear mb-4 flex flex-wrap flex-container">
-                                          <div class="input-container w-1/4 md:w-1/4 left loan-amount">
-                                            <label for="amount-input" class="sl">Loan Amount</label>
-                                            <input type="text" id="amount-input" value="30" class="w-full sl" />
-                                          </div> <!-- input-container -->
-                                          <div class="input-container w-1/4 md:w-1/4 left loan-term">
-                                            <label for="loan-term" class="sl">Loan Term</label>
-                                            <select type="text" id="loan-term" class="w-full sl">
-                                              <!--<option value="1">1 year</option>-->
-                                              <option selected value="2">2 years</option>
-                                              <!--<option value="3">3 years</option>-->
-                                              <!--<option value="4">4 years</option>
-                                              <option value="5">5 years</option>-->
-                                              </select>
-                                          </div>
-                                          <!-- input-container -->
-                                          <div class="input-container w-1/4 md:w-1/4 left fixed-fee">
-                                            <label for="fixed-fee" class="sl">Fixed Fee</label>
-                                            <input type="text" id="fixed-fee" placeholder="fee" value="100" disabled class="sl w-full" />
-                                          </div>
-                                          <div class="input-container mb-4 w-1/4 md:w-1/4 left loan-frequency">
-                                            <label for="loan-frequency">Payment Frequency</label>
-                                            <select type="text" id="loan-frequency" class="border-r-0 w-full sl">
-                                              <!--<option value="4">Weekly</option>
-                                              <option value="2">Fortnightly</option>-->
-                                              <option selected value="1">Monthly</option>
-                                              </select>
-                                          </div> <!-- input-container -->
-                                        </div> <!-- clear -->
-
-                                        <div class="output mb-4 pt-12 flex flex-row">
-                                          <div class="loan-total mb-2 text-xs flex-1">
-                                            <div class="title mb-2 text-xs">
-                                              Total Loan Amount
-                                            </div>
-                                            <span id="loan-total" class="mr-2 text-2xl"></span>
-                                          </div>
-                                          <div class="loan-install flex-1">
-                                            <div class="title mb-2 text-xs">
-                                              Loan Repayment
-                                            </div>
-                                            <span id="loan-repayment" class="mr-2 text-4xl font-bold"></span>/ <span id="payment-frequency"></span>
-                                          </div>
-                                          <div class="mt-4 flex-1">
-                                            <a class="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 shadow-sm" onclick="openLightbox()" href="#">Apply Now</a>
-                                          </div>
-                                        </div>
-
-                                        <div class="info text-xs">
-                                          <p>This calculator uses the special online-only fixed fee loan.</p>
-                                        </div>
-                                    </div>
-
-                                            <!-- Pricing tables -->
+                                <!-- Pricing tables -->
                                 <div class="max-w-sm md:max-w-2xl xl:max-w-none mx-auto grid gap-8 md:grid-cols-3 xl:grid-cols-3 xl:gap-6 items-start" data-aos="fade-up" data-aos-delay="100">
                                     <!-- Pricing table 1 -->
                                     <div class="relative flex flex-col h-full rounded-br-[100px] py-5 px-6">
@@ -834,7 +774,7 @@
                                         </div>
                                         <div class="mb-5">
                                             <div class="text-2xl text-slate-800 font-bold text-center mb-4">$30/m</div>
-                                            <a class="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 shadow-sm" href="#0">Get Silver</a>
+                                            <a class="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 shadow-sm" href="/onboarding/01">Get Silver</a>
                                         </div>
                                         <div class="text-slate-800 font-medium mb-4">Get back in savings:</div>
                                         <ul class="text-slate-500 text-left space-y-2">
@@ -873,7 +813,7 @@
                                         </div>
                                         <div class="mb-5">
                                             <div class="text-2xl text-slate-800 font-bold text-center mb-4">$60/m</div>
-                                            <a class="btn-sm w-full inline-flex items-center text-slate-100 bg-slate-800 hover:bg-slate-900 shadow-sm" href="#0">Get Gold</a>
+                                            <a class="btn-sm w-full inline-flex items-center text-slate-100 bg-slate-800 hover:bg-slate-900 shadow-sm" href="/onboarding/01">Get Gold</a>
                                         </div>
                                         <div class="text-slate-800 font-medium mb-4">Get back in savings:</div>
                                         <ul class="text-slate-500 text-left space-y-2">
@@ -909,7 +849,7 @@
                                         </div>
                                         <div class="mb-5">
                                             <div class="text-2xl text-slate-800 font-bold text-center mb-4">$100/m</div>
-                                            <a class="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 shadow-sm" href="#0">Get Platinum</a>
+                                            <a class="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 shadow-sm" href="/onboarding/01">Get Platinum</a>
                                         </div>
                                         <div class="text-slate-800 font-medium mb-4">Get back in savings:</div>
                                         <ul class="text-slate-500 text-left space-y-2">
@@ -982,6 +922,64 @@
                                         </ul>
                                     </div>-->
 
+                                </div>
+
+                                <!--NEW SECTION - Calculator -->
+                                <div id="calculator-wrapper" class="maxWrapper calculator max-w-3xl mx-auto p-6">
+                                    <div class="mb-8" id="loan-amount">
+                                        <div id="amount-slider"></div>
+                                    </div> <!-- loan-amount -->
+                                    <div class="sl-clear mb-4 flex flex-wrap flex-container">
+                                        <div class="input-container w-1/4 md:w-1/4 left loan-amount">
+                                        <label for="amount-input" class="sl">Loan Amount</label>
+                                        <input type="text" id="amount-input" value="30" class="w-full sl" />
+                                        </div> <!-- input-container -->
+                                        <div class="input-container w-1/4 md:w-1/4 left loan-term">
+                                        <label for="loan-term" class="sl">Loan Term</label>
+                                        <select type="text" id="loan-term" class="w-full sl">
+                                            <!--<option value="1">1 year</option>-->
+                                            <option selected value="2">2 years</option>
+                                            <!--<option value="3">3 years</option>-->
+                                            <!--<option value="4">4 years</option>
+                                            <option value="5">5 years</option>-->
+                                            </select>
+                                        </div>
+                                        <!-- input-container -->
+                                        <div class="input-container w-1/4 md:w-1/4 left fixed-fee">
+                                        <label for="fixed-fee" class="sl">Fixed Fee</label>
+                                        <input type="text" id="fixed-fee" placeholder="fee" value="100" disabled class="sl w-full" />
+                                        </div>
+                                        <div class="input-container mb-4 w-1/4 md:w-1/4 left loan-frequency">
+                                        <label for="loan-frequency">Payment Frequency</label>
+                                        <select type="text" id="loan-frequency" class="border-r-0 w-full sl">
+                                            <!--<option value="4">Weekly</option>
+                                            <option value="2">Fortnightly</option>-->
+                                            <option selected value="1">Monthly</option>
+                                            </select>
+                                        </div> <!-- input-container -->
+                                    </div> <!-- clear -->
+
+                                    <div class="output mb-4 pt-12 flex flex-row">
+                                        <div class="loan-total mb-2 text-xs flex-1">
+                                        <div class="title mb-2 text-xs">
+                                            Total Loan Amount
+                                        </div>
+                                        <span id="loan-total" class="mr-2 text-2xl"></span>
+                                        </div>
+                                        <div class="loan-install flex-1">
+                                        <div class="title mb-2 text-xs">
+                                            Loan Repayment
+                                        </div>
+                                        <span id="loan-repayment" class="mr-2 text-4xl font-bold"></span>/ <span id="payment-frequency"></span>
+                                        </div>
+                                        <div class="mt-4 flex-1">
+                                        <a class="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 shadow-sm" href="/onboarding/01">Apply Now</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="info text-xs">
+                                        <p>This calculator uses the special online-only fixed fee loan.</p>
+                                    </div>
                                 </div>
 
                             </div>
@@ -1078,7 +1076,7 @@
                             <div class="shrink-0">
                                 <div class="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 md:mb-0">
                                     <div>
-                                        <a class="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 group shadow-sm" onclick="openLightbox()" href="#">
+                                        <a class="btn-sm w-full inline-flex items-center text-blue-50 bg-blue-500 hover:bg-blue-600 group shadow-sm" href="/onboarding/01">
                                             Get your loan
                                             <span class="tracking-normal text-sky-400 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                                                 <svg class="fill-current" width="12" height="10" xmlns="http://www.w3.org/2000/svg">
@@ -1170,7 +1168,7 @@
                         <h6 class="text-sm text-slate-100 font-bold mb-3">Company</h6>
                         <ul class="text-sm font-[450] space-y-2">
                             <li>
-                                <a class="text-slate-400 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">Send us an email</a>
+                                <a class="text-slate-400 hover:text-blue-500 transition duration-150 ease-in-out" onclick="openLightbox()" href="#0">Send us an email</a>
                             </li>
                             <li>
                                 <a class="text-slate-400 hover:text-blue-500 transition duration-150 ease-in-out" href="#0">Code of conduct</a>
@@ -1183,7 +1181,7 @@
                 <!-- Bottom area -->
                 <div class="pb-4 md:pb-8">
                     <div class="text-xs text-slate-500">
-                        If you would like to find out more about Amcan's services, please click <a class="font-medium underline hover:text-blue-500 transition duration-150 ease-in-out" href="#0">here</a> If you have any other questions, please reach out to us via the in-app chat. AmCan is a financial services provider established in the United States and Canada. AmCan is compliant with financial regulations in both countries and specializes in providing credit creation and reporting tools for immigrants. Our services include the provision of small, easily approved loans with convenient monthly installments.
+                        If you would like to find out more about Amcan's services, please click <a class="font-medium underline hover:text-blue-500 transition duration-150 ease-in-out"  onclick="openLightbox()" href="#0">here</a> If you have any other questions, please reach out to us via the in-app chat. AmCan is a financial services provider established in the United States and Canada. AmCan is compliant with financial regulations in both countries and specializes in providing credit creation and reporting tools for immigrants. Our services include the provision of small, easily approved loans with convenient monthly installments.
                     </div>
                 </div>
 
