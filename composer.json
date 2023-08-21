@@ -12,6 +12,7 @@
         "ext-exif": "*",
         "ext-gd": "*",
         "ext-redis": "*",
+        "corbosman/laravel-passport-claims": "*",
         "devdojo/app": "0.11.0",
         "devdojo/themes": "0.0.7",
         "guzzlehttp/guzzle": "^7.2",
@@ -50,9 +51,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-                "laravel/passport"
-            ],
+            "dont-discover": [],
             "providers": [
                 "Wave\\WaveServiceProvider"
             ]
