@@ -51,7 +51,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [],
+            "dont-discover": [
+                "laravel/passport"
+            ],
             "providers": [
                 "Wave\\WaveServiceProvider"
             ]
