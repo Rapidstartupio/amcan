@@ -264,7 +264,7 @@ class ApiController extends Controller
     {
         $user = auth()->user();
 
-        $token = $user->createToken('MyAppToken');
+        $token = $user->createToken('MyAppToken')->accessToken;
         // $token->addClaim('report_id', "abc");
         //$token->withClaim('report_id', 'value');
         //dd($token->accessToken);
