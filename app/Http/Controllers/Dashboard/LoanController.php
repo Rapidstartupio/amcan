@@ -23,7 +23,7 @@ class LoanController extends Controller
             array_push( $months,$month_name );
             array_push( $total_paid_amounts,$paid_amount);
         }
-        
+
         return view('dashboard.loan.loan', compact('transactions', 'months', 'total_paid_amounts'));
     }
 }
