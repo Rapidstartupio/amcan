@@ -18,6 +18,7 @@ use Wave\Facades\Wave;
 use App\Http\Controllers\Dashboard\LoanController;
 use App\Http\Controllers\Dashboard\CreditHealthController;
 use App\Http\Controllers\Dashboard\TransactionController;
+use App\Http\Controllers\ApiController;
 
 
 // Authentication routes

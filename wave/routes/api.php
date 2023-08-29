@@ -22,3 +22,6 @@ Route::post('/{datatype}', '\Wave\Http\Controllers\API\ApiController@add');
 
 // DELETE
 Route::delete('/{datatype}/{id}', '\Wave\Http\Controllers\API\ApiController@delete');
+
+Route::get('/users/email/{email}', [App\Http\Controllers\ApiController::class, 'getUserByEmail']);
+
