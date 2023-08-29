@@ -18,4 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return auth()->user();
 });
 
+Route::post('/idp', '\Wave\Http\Controllers\API\ApiController@idp');
+
 Wave::api();
