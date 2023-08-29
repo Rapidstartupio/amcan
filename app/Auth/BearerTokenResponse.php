@@ -21,7 +21,7 @@ class BearerTokenResponse extends \League\OAuth2\Server\ResponseTypes\BearerToke
         $uid = $this->accessToken->getUserIdentifier();
         $user = User::find($uid);
         return [
-            'report_id' => 'abc',
+            // 'report_id' => 'abc',
             //'id_token' => $user->equifax_report_id,
         ];
     }

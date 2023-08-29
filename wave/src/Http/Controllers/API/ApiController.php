@@ -11,6 +11,7 @@ use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use TCG\Voyager\Models\DataType;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
+use CorBosman\Passport\AccessToken;
 
 class ApiController extends Controller
 {
@@ -262,21 +263,26 @@ class ApiController extends Controller
     public function idp()
     {
         $user = auth()->user();
-        $token = $user->createToken('MyAppToken')->accessToken;
-        dd($token);
-        $report_id = $user->equifax_report_id;
-        $credentials = request(['email', 'password']);
-        $tokenWithCustom = auth('api')->attempt($credentials);
-        $data = [
-            'report_id' => $report_id,
-        ];
-        $customClaims = JWTFactory::customClaims($data);
-        //dd($customClaims);
-        //return response()->json(['access_token' => JWTAuth::fromUser($user, ['exp' => config('wave.api.key_token_expires', 1)])]);
 
-        $payload = JWTFactory::make($customClaims);
+        $token = $user->createToken('MyAppToken');
+        // $token->addClaim('report_id', "abc");
+        //$token->withClaim('report_id', 'value');
+        //dd($token->accessToken);
+        return response()->json(['id_token' => $token]);
+        // dd($token);
+        // $report_id = $user->equifax_report_id;
+        // $credentials = request(['email', 'password']);
+        // $tokenWithCustom = auth('api')->attempt($credentials);
+        // $data = [
+        //     'report_id' => $report_id,
+        // ];
+        // $customClaims = JWTFactory::customClaims($data);
+        // //dd($customClaims);
+        // //return response()->json(['access_token' => JWTAuth::fromUser($user, ['exp' => config('wave.api.key_token_expires', 1)])]);
 
-        $token = JWTAuth::encode($payload);
-        return $this->respondWithToken($token->get());
+        // $payload = JWTFactory::make($customClaims);
+
+        // $token = JWTAuth::encode($payload);
+        // return $this->respondWithToken($token->get());
     }
 }
