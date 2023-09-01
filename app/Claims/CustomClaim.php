@@ -21,7 +21,10 @@ class CustomClaim
                 $response = Http::withToken($res->access_token)
                     ->post('https://api.uat.equifax.ca/v1/credithealth/reportId/retrieve', [
                         'customerInfo' => ['memberNumber' => '999FZ03391', "securityCode" => "99"],
-                        'personalInfo' => ['firstName' => 'Patric', "lastName" => "Mcafee", "idpKey" => "1", 'middleName' => '', 'dob' => '1984-10-12']
+                        'personalInfo' => [
+                            'firstName' => 'Patric', "lastName" => "Mcafee", "idpKey" => "1", 'middleName' => '', 'dob' => '1984-10-12',
+                            'address' => ["civicNumber" => "123", "streetName" => "Main street", "suite" => "", "city" => "Montréal", "province" => "QC", "postalCode" => "H2Y2V5"]
+                        ]
                     ]);
                 dd($response->object());
             }
