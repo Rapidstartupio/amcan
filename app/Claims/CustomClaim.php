@@ -12,11 +12,11 @@ class CustomClaim
     {
         $user = User::find($token->getUserIdentifier());
         if (!$user->equifax_report_id) {
-            $response = Http::withBasicAuth(env('EQUIFAX_CLIENT_ID'), env('EQUIFAX_SECRET_ID'))->post('https://api.uat.equifax.ca/v2/oauth/token', [
+            $response = Http::withBasicAuth(env('EQUIFAX_CLIENT_ID'), env('EQUIFAX_SECRET_ID'))->asForm()->post('https://api.uat.equifax.ca/v2/oauth/token', [
                 'grant_type' => 'client_credentials',
                 'scope' => 'https://api.equifax.ca/v1/credithealth'
             ]);
-            dd($response);
+            dd($response->json());
         }
         $token->addClaim('report_id', $user->equifax_report_id);
         //$token->addClaim('openid', 'string');
