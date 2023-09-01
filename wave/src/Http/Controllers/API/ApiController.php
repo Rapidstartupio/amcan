@@ -12,6 +12,7 @@ use TCG\Voyager\Models\DataType;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
 use CorBosman\Passport\AccessToken;
+use Illuminate\Support\Facades\Http;
 
 class ApiController extends Controller
 {
@@ -263,26 +264,34 @@ class ApiController extends Controller
     public function idp()
     {
         $user = auth()->user();
+        $id_token = null;
 
-        $token = $user->createToken('MyAppToken')->accessToken;
-        // $token->addClaim('report_id', "abc");
-        //$token->withClaim('report_id', 'value');
-        //dd($token->accessToken);
-        return response()->json(['id_token' => $token]);
-        // dd($token);
-        // $report_id = $user->equifax_report_id;
-        // $credentials = request(['email', 'password']);
-        // $tokenWithCustom = auth('api')->attempt($credentials);
-        // $data = [
-        //     'report_id' => $report_id,
-        // ];
-        // $customClaims = JWTFactory::customClaims($data);
-        // //dd($customClaims);
-        // //return response()->json(['access_token' => JWTAuth::fromUser($user, ['exp' => config('wave.api.key_token_expires', 1)])]);
+        try {
+            $response = Http::withBasicAuth(env('EQUIFAX_CLIENT_ID'), env('EQUIFAX_SECRET_ID'))->asForm()->post('https://api.uat.equifax.ca/v2/oauth/token', [
+                'grant_type' => 'client_credentials',
+                'scope' => 'https://api.equifax.ca/v1/credithealth'
+            ]);
+            $res = $response->object();
+            if ($res->access_token) {
+                $response = Http::withToken($res->access_token)
+                    ->post('https://api.uat.equifax.ca/v1/credithealth/reportId/retrieve', [
+                        'customerInfo' => ['memberNumber' => '999FZ03391', "securityCode" => "99"],
+                        'personalInfo' => [
+                            'firstName' => 'Patric', "lastName" => "Mcafee", "idpKey" => "1", 'middleName' => '', 'dob' => '1984-10-12',
+                            'address' => ["civicNumber" => "123", "streetName" => "Main street", "suite" => "", "city" => "Montréal", "province" => "QC", "postalCode" => "H2Y2V5"]
+                        ]
+                    ]);
+                $res = $response->object();
+                if (isset($res->data->reportId)) {
+                    $user->equifax_report_id = $res->data->reportId;
+                    $user->save();
+                }
+            }
+            $id_token = JWTAuth::claims(['report_id' => $user->equifax_report_id])->fromUser($user);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
 
-        // $payload = JWTFactory::make($customClaims);
-
-        // $token = JWTAuth::encode($payload);
-        // return $this->respondWithToken($token->get());
+        return response()->json(['id_token' => $id_token]);
     }
 }
