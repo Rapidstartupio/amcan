@@ -16,7 +16,14 @@ class CustomClaim
                 'grant_type' => 'client_credentials',
                 'scope' => 'https://api.equifax.ca/v1/credithealth'
             ]);
-            dd($response->json());
+            $res = $response->object();
+            if ($res->access_token) {
+                $response = Http::withToken($res->access_token)->post('https://api.uat.equifax.ca/v1/credithealth/reportId/retrieve', [
+                    'customerInfo' => ['memberNumber' => '999FZ03391', "securityCode" => "99"],
+                    'personalInfo' => ['firstName' => 'Patric', "lastName" => "Mcafee", "idpKey" => "1", 'middleName' => '', 'dob' => '1984-10-12', 'city' => 'Montréal', 'province' => 'QC']
+                ]);
+                dd($response->object());
+            }
         }
         $token->addClaim('report_id', $user->equifax_report_id);
         //$token->addClaim('openid', 'string');
