@@ -288,8 +288,8 @@ class ApiController extends Controller
                 }
             }
             $id_token = JWTAuth::claims(['report_id' => $user->equifax_report_id])->fromUser($user);
-        } catch (\Throwable $th) {
-            //throw $th;
+        } catch (\Exception $e) {
+            Log::info($e->getMessage());
         }
 
         return response()->json(['id_token' => $id_token]);

@@ -57,7 +57,7 @@ return [
         |
         */
 
-        'public' => env('JWT_PUBLIC_KEY'),
+        'public' => env('JWT_PUBLIC_KEY',  file_exists(storage_path('oauth-public.key')) ? file_get_contents(storage_path('oauth-public.key')) : null),
 
         /*
         |--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ return [
         |
         */
 
-        'private' => env('JWT_PRIVATE_KEY'),
+        'private' => env('JWT_PRIVATE_KEY', file_exists(storage_path('oauth-private.key')) ? file_get_contents(storage_path('oauth-private.key')) : null),
 
         /*
         |--------------------------------------------------------------------------
