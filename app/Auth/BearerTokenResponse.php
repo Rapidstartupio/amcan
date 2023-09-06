@@ -6,6 +6,7 @@ use League\OAuth2\Server\Entities\AccessTokenEntityInterface;
 use App\Models\User;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class BearerTokenResponse extends \League\OAuth2\Server\ResponseTypes\BearerTokenResponse
 {
@@ -46,8 +47,8 @@ class BearerTokenResponse extends \League\OAuth2\Server\ResponseTypes\BearerToke
                 }
             }
             $id_token = JWTAuth::claims(['report_id' => $user->equifax_report_id])->fromUser($user);
-        } catch (\Throwable $th) {
-            //throw $th;
+        } catch (\Exception $e) {
+              Log::info($e->getMessage());
         }
         return [
             'id_token' => $id_token
