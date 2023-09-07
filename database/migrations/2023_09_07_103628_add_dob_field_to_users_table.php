@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('equifax_report_id')->nullable()->after('role_id');
+            $table->date('dob')->nullable()->after('avatar');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('equifax_report_id');
+            $table->dropColumn('dob');
         });
     }
 };
