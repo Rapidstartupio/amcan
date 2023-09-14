@@ -24,7 +24,12 @@ class BearerTokenResponse extends \League\OAuth2\Server\ResponseTypes\BearerToke
         $uid = $this->accessToken->getUserIdentifier();
         $user = User::find($uid);
         $id_token = null;
-
+        if (!env('EQUIFAX_CLIENT_ID') or !env('EQUIFAX_SECRET_ID')) {
+            $id_token = JWTAuth::claims(['report_id' => $user->equifax_report_id])->fromUser($user);
+            return [
+                'id_token' => $id_token
+            ];
+        }
         try {
             $response = Http::withBasicAuth(env('EQUIFAX_CLIENT_ID'), env('EQUIFAX_SECRET_ID'))->asForm()->post('https://api.uat.equifax.ca/v2/oauth/token', [
                 'grant_type' => 'client_credentials',
