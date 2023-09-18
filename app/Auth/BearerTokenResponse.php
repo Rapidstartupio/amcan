@@ -41,13 +41,13 @@ class BearerTokenResponse extends \League\OAuth2\Server\ResponseTypes\BearerToke
                 $response = Http::withToken($res->access_token)
                     ->post('https://api.uat.equifax.ca/v1/credithealth/reportId/retrieve', [
                         'customerInfo' => [
-                            'memberNumber' => $user->memberNumber,
-                            "securityCode" => $user->securityCode
+                            'memberNumber' => '999FZ03391',
+                            "securityCode" => '99'
                         ],
                         'personalInfo' => [
                             'firstName' => $user->firstName,
                             "lastName" => $user->lastName,
-                            "idpKey" => $user->idpKey,
+                            "idpKey" => $user->id,
                             'middleName' => $user->middleName,
                             'dob' => $user->dob,
                             'address' => [

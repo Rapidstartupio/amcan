@@ -13,6 +13,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Facades\JWTFactory;
 use CorBosman\Passport\AccessToken;
 use Illuminate\Support\Facades\Http;
+use App\Models\User;
 
 class ApiController extends Controller
 {
@@ -263,7 +264,7 @@ class ApiController extends Controller
 
     public function idp()
     {
-        $user = auth()->user();
+        $user = $user = User::find(auth()->id);
         $id_token = null;
 
         try {
@@ -275,17 +276,32 @@ class ApiController extends Controller
             if ($res->access_token) {
                 $response = Http::withToken($res->access_token)
                     ->post('https://api.uat.equifax.ca/v1/credithealth/reportId/retrieve', [
-                        'customerInfo' => ['memberNumber' => '999FZ03391', "securityCode" => "99"],
+                        'customerInfo' => [
+                            'memberNumber' => '999FZ03391',
+                            "securityCode" => '99'
+                        ],
                         'personalInfo' => [
-                            'firstName' => 'Patric', "lastName" => "Mcafee", "idpKey" => "1", 'middleName' => '', 'dob' => '1984-10-12',
-                            'address' => ["civicNumber" => "123", "streetName" => "Main street", "suite" => "", "city" => "Montréal", "province" => "QC", "postalCode" => "H2Y2V5"]
+                            'firstName' => $user->firstName,
+                            "lastName" => $user->lastName,
+                            "idpKey" => $user->id,
+                            'middleName' => $user->middleName,
+                            'dob' => $user->dob,
+                            'address' => [
+                                "civicNumber" => $user->civicNumber,
+                                "streetName" => $user->streetName,
+                                "suite" =>  $user->suite,
+                                "city" => $user->city,
+                                "province" =>  $user->province,
+                                "postalCode" =>  $user->postalCode
+                            ]
                         ]
                     ]);
                 $res = $response->object();
                 if (isset($res->data->reportId)) {
-                    $user->equifax_report_id = $res->data->reportId;
-                    $user->save();
+                    $reportId = $res->data->reportId;
                 }
+                $user->equifax_report_id = $reportId;
+                $user->save();
             }
             $id_token = JWTAuth::claims(['report_id' => $user->equifax_report_id])->fromUser($user);
         } catch (\Exception $e) {

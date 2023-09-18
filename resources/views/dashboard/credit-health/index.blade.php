@@ -121,18 +121,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-5">
-                        <label for="postalCode" class="block text-sm font-medium leading-5 text-gray-700">memberNumber</label>
-                        <div class="mt-1 rounded-md shadow-sm">
-                            <input id="memberNumber" type="text" name="memberNumber" placeholder="" class="w-full form-input" required>
-                        </div>
-                    </div>
-                    <div class="mt-5">
-                        <label for="securityCode" class="block text-sm font-medium leading-5 text-gray-700">securityCode</label>
-                        <div class="mt-1 rounded-md shadow-sm">
-                            <input id="securityCode" type="text" name="securityCode" placeholder="" class="w-full form-input" required>
-                        </div>
-                    </div>
+
 
                     <div class="flex justify-end w-full mt-2">
                         <button id="search-btn" class="flex self-end justify-center w-auto px-4 py-2 mt-5 text-sm font-medium text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-wave-600 hover:bg-wave-500 focus:outline-none focus:border-wave-700 focus:shadow-outline-wave active:bg-wave-700">Search</button>
@@ -265,7 +254,7 @@
                     }, 15);
                 } else {
                     setTimeout(function() {
-                        popToast('warning', response.data.error);
+                        popToast('warning', response.data.error.message);
                     }, 15);
                 }
 
@@ -273,12 +262,11 @@
             })
             .catch(res => {
                 console.log(res);
-                for (let i = 0; i < res.data.error.length; i++) {
+                if (res.data.error) {
                     setTimeout(function() {
-                        popToast('danger', res.data.error[0]);
+                        popToast('danger', res.data.error);
                     }, 10);
                 }
-
                 searchBtn.disabled = false;
             });
 
