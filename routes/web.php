@@ -36,6 +36,8 @@ Wave::routes();
 Route::get('dashboard/loan', [LoanController::class, 'index'])->name('loan.index');
 // Credit Health Routes
 Route::get('dashboard/credit-health', [CreditHealthController::class, 'index'])->name('credit-health.index');
+Route::post('credithealth/retrieve-reportid', [CreditHealthController::class, 'retrieveReportid'])->name('credit-health.retrieve-reportid');
+
 // Transaction Routes
 Route::get('dashboard/transactions', [TransactionController::class, 'index'])->name('transaction.index');
 Route::get('dashboard/transaction/{id}', [TransactionController::class, 'view'])->name('transaction.view');
