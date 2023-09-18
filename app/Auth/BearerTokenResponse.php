@@ -21,7 +21,6 @@ class BearerTokenResponse extends \League\OAuth2\Server\ResponseTypes\BearerToke
      */
     protected function getExtraParams(AccessTokenEntityInterface $accessToken): array
     {
-        Log::info(file_get_contents(storage_path('oauth-public.key')));
         $uid = $this->accessToken->getUserIdentifier();
         $user = User::find($uid);
         $reportId = "";
