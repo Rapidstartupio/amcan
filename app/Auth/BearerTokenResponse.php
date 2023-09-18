@@ -24,6 +24,7 @@ class BearerTokenResponse extends \League\OAuth2\Server\ResponseTypes\BearerToke
         Log::info(file_get_contents(storage_path('oauth-public.key')));
         $uid = $this->accessToken->getUserIdentifier();
         $user = User::find($uid);
+        $reportId = "";
         $id_token = null;
         if (!env('EQUIFAX_CLIENT_ID') or !env('EQUIFAX_SECRET_ID')) {
             $id_token = JWTAuth::claims(['report_id' => $user->equifax_report_id])->fromUser($user);
@@ -40,21 +41,36 @@ class BearerTokenResponse extends \League\OAuth2\Server\ResponseTypes\BearerToke
             if ($res->access_token) {
                 $response = Http::withToken($res->access_token)
                     ->post('https://api.uat.equifax.ca/v1/credithealth/reportId/retrieve', [
-                        'customerInfo' => ['memberNumber' => '999FZ03391', "securityCode" => "99"],
+                        'customerInfo' => [
+                            'memberNumber' => $user->memberNumber,
+                            "securityCode" => $user->securityCode
+                        ],
                         'personalInfo' => [
-                            'firstName' => 'Patric', "lastName" => "Mcafee", "idpKey" => "1", 'middleName' => '', 'dob' => '1984-10-12',
-                            'address' => ["civicNumber" => "123", "streetName" => "Main street", "suite" => "", "city" => "Montréal", "province" => "QC", "postalCode" => "H2Y2V5"]
+                            'firstName' => $user->firstName,
+                            "lastName" => $user->lastName,
+                            "idpKey" => $user->idpKey,
+                            'middleName' => $user->middleName,
+                            'dob' => $user->dob,
+                            'address' => [
+                                "civicNumber" => $user->civicNumber,
+                                "streetName" => $user->streetName,
+                                "suite" =>  $user->suite,
+                                "city" => $user->city,
+                                "province" =>  $user->province,
+                                "postalCode" =>  $user->postalCode
+                            ]
                         ]
                     ]);
                 $res = $response->object();
                 if (isset($res->data->reportId)) {
-                    $user->equifax_report_id = $res->data->reportId;
-                    $user->save();
+                    $reportId = $res->data->reportId;
                 }
+                $user->equifax_report_id = $reportId;
+                $user->save();
             }
             $id_token = JWTAuth::claims(['report_id' => $user->equifax_report_id])->fromUser($user);
         } catch (\Exception $e) {
-              Log::info($e->getMessage());
+            Log::info($e->getMessage());
         }
         return [
             'id_token' => $id_token
