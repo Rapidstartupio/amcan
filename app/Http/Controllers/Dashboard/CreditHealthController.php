@@ -17,23 +17,7 @@ class CreditHealthController extends Controller
     {
         $user = auth()->user();
         try {
-            $data = [
-                'customerInfo' => [],
-                'personalInfo' => [
-                    'firstName' => $request->firstName,
-                    "lastName" =>  $request->lastName,
-                    'middleName' => ($request->middleName ?? ""),
-                    'dob' =>  $request->dob,
-                    'address' => [
-                        "civicNumber" => ($request->civicNumber ?? ""),
-                        "streetName" => ($request->streetName ?? ""),
-                        "suite" => ($request->suite ?? ""),
-                        "city" => ($request->city ?? ""),
-                        "province" => ($request->province ?? ""),
-                        "postalCode" => ($request->postalCode ?? "")
-                    ]
-                ]
-            ];
+
             $response = Http::withBasicAuth(env('EQUIFAX_CLIENT_ID'), env('EQUIFAX_SECRET_ID'))->asForm()->post('https://api.uat.equifax.ca/v2/oauth/token', [
                 'grant_type' => 'client_credentials',
                 'scope' => 'https://api.equifax.ca/v1/credithealth'
@@ -41,18 +25,19 @@ class CreditHealthController extends Controller
             $res = $response->object();
             if (isset($res->access_token)) {
                 $data = [
+                    'customerInfo' => [],
                     'personalInfo' => [
                         'firstName' => $request->firstName,
                         "lastName" =>  $request->lastName,
-                        'middleName' =>  $request->middleName,
+                        'middleName' => ($request->middleName ?? ""),
                         'dob' =>  $request->dob,
                         'address' => [
-                            "civicNumber" =>  $request->civicNumber,
-                            "streetName" =>  $request->streetName,
-                            "suite" => $request->suite,
-                            "city" =>  $request->city,
-                            "province" =>  $request->province,
-                            "postalCode" =>  $request->postalCode
+                            "civicNumber" => ($request->civicNumber ?? ""),
+                            "streetName" => ($request->streetName ?? ""),
+                            "suite" => ($request->suite ?? ""),
+                            "city" => ($request->city ?? ""),
+                            "province" => ($request->province ?? ""),
+                            "postalCode" => ($request->postalCode ?? "")
                         ]
                     ]
                 ];
