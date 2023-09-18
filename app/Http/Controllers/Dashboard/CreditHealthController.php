@@ -18,18 +18,19 @@ class CreditHealthController extends Controller
         $user = auth()->user();
         try {
             $data = [
+                'customerInfo' => [],
                 'personalInfo' => [
                     'firstName' => $request->firstName,
                     "lastName" =>  $request->lastName,
-                    'middleName' =>  $request->middleName,
+                    'middleName' => ($request->middleName ?? ""),
                     'dob' =>  $request->dob,
                     'address' => [
-                        "civicNumber" =>  $request->civicNumber,
-                        "streetName" =>  $request->streetName,
-                        "suite" => $request->suite,
-                        "city" =>  $request->city,
-                        "province" =>  $request->province,
-                        "postalCode" =>  $request->postalCode
+                        "civicNumber" => ($request->civicNumber ?? ""),
+                        "streetName" => ($request->streetName ?? ""),
+                        "suite" => ($request->suite ?? ""),
+                        "city" => ($request->city ?? ""),
+                        "province" => ($request->province ?? ""),
+                        "postalCode" => ($request->postalCode ?? "")
                     ]
                 ]
             ];
