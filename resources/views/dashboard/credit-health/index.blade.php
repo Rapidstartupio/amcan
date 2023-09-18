@@ -98,19 +98,39 @@
                     <div class="mt-5">
                         <label for="city" class="block text-sm font-medium leading-5 text-gray-700">city</label>
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="city" type="text" name="city" placeholder="" class="w-full form-input">
+                            <input id="city" type="text" name="city" placeholder="" class="w-full form-input" required>
                         </div>
                     </div>
                     <div class="mt-5">
                         <label for="province" class="block text-sm font-medium leading-5 text-gray-700">province</label>
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="province" type="text" name="province" placeholder="" class="w-full form-input">
+                            <input id="province" type="text" name="province" placeholder="" class="w-full form-input" required>
                         </div>
                     </div>
                     <div class="mt-5">
                         <label for="postalCode" class="block text-sm font-medium leading-5 text-gray-700">postalCode</label>
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="postalCode" type="text" name="postalCode" placeholder="" class="w-full form-input">
+                            <input id="postalCode" type="text" name="postalCode" placeholder="" class="w-full form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <label for="postalCode" class="block text-sm font-medium leading-5 text-gray-700">idpKey</label>
+                        <div class="mt-1 rounded-md shadow-sm">
+                            <input id="idpKey" type="text" name="idpKey" placeholder="" class="w-full form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <label for="postalCode" class="block text-sm font-medium leading-5 text-gray-700">memberNumber</label>
+                        <div class="mt-1 rounded-md shadow-sm">
+                            <input id="memberNumber" type="text" name="memberNumber" placeholder="" class="w-full form-input" required>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <label for="securityCode" class="block text-sm font-medium leading-5 text-gray-700">securityCode</label>
+                        <div class="mt-1 rounded-md shadow-sm">
+                            <input id="securityCode" type="text" name="securityCode" placeholder="" class="w-full form-input" required>
                         </div>
                     </div>
 
@@ -239,13 +259,26 @@
                 "/credithealth/retrieve-reportid", data)
             .then(response => {
                 console.log(response);
+                if (response.data.success) {
+                    setTimeout(function() {
+                        popToast('success', response.data);
+                    }, 15);
+                } else {
+                    setTimeout(function() {
+                        popToast('warning', response.data.error);
+                    }, 15);
+                }
+
                 searchBtn.disabled = false;
             })
-            .catch(error => {
-                console.log(error.response.data.message);
-                setTimeout(function() {
-                    popToast('danger', error.response.data.message);
-                }, 10);
+            .catch(res => {
+                console.log(res);
+                for (let i = 0; i < res.data.error.length; i++) {
+                    setTimeout(function() {
+                        popToast('danger', res.data.error[0]);
+                    }, 10);
+                }
+
                 searchBtn.disabled = false;
             });
 
