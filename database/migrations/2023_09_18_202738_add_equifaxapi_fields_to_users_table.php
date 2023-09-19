@@ -14,12 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('memberNumber')->default("");
-            $table->string('securityCode')->default("");
             $table->string('firstName')->default("");
             $table->string('lastName')->default("");
             $table->string('middleName')->default("");
-            $table->string('idpKey')->default("");
             $table->string('civicNumber')->default("");
             $table->string('streetName')->default("");
             $table->string('suite')->default("");
@@ -37,7 +34,15 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('firstName');
+            $table->dropColumn('lastName');
+            $table->dropColumn('middleName');
+            $table->dropColumn('civicNumber');
+            $table->dropColumn('streetName');
+            $table->dropColumn('suite');
+            $table->dropColumn('city');
+            $table->dropColumn('province');
+            $table->dropColumn('postalCode');
         });
     }
 };
