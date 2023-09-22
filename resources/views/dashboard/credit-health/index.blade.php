@@ -251,6 +251,7 @@
                 if (response.data.success) {
                     setTimeout(function() {
                         popToast('success', "Report Id Found: " + response.data.data);
+                        window.location.reload();
                     }, 15);
                 } else {
                     setTimeout(function() {

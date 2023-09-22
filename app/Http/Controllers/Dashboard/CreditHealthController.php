@@ -16,6 +16,10 @@ class CreditHealthController extends Controller
     
     public function index()
     {
+        $user = auth()->user();
+        if($user->equifax_report_id){
+            return redirect()->away('https://uat.credithealth.equifax.ca/credit-health/overview?mn=999FZ03391');
+        }
         return view('dashboard.credit-health.index');
     }
     public function retrieveReportid(Request $request)
@@ -39,7 +43,7 @@ class CreditHealthController extends Controller
                         "lastName" =>  $request->lastName,
                         'middleName' => ($request->middleName ?? ""),
                         'dob' =>  $request->dob,
-                        'idpKey' => ($request->idpKey ?? ""),
+                        'idpKey' => ($user->id ?? ""),
                         'address' => [
                             "civicNumber" => ($request->civicNumber ?? ""),
                             "streetName" => ($request->streetName ?? ""),
@@ -54,6 +58,18 @@ class CreditHealthController extends Controller
                     ->post('https://api.uat.equifax.ca/v1/credithealth/reportId/retrieve', $data);
                 $res = $response->object();
                 if (isset($res->data->reportId)) {
+                    $user->firstName = $request->firstName;
+                    $user->lastName = $request->lastName;
+                    $user->middleName = $request->middleName;
+                    $user->dob = $request->dob;
+                    $user->idpKey = $user->id;
+                    $user->streetName = $request->streetName;
+                    $user->suite = $request->suite;
+                    $user->city = $request->city;
+                    $user->province = $request->province;
+                    $user->postalCode = $request->postalCode;
+                    $user->equifax_report_id = $reportId;
+                    $user->save();
                     return response()->json(['success' => true, 'data' => $res->data->reportId]);
                 } else if (isset($res->error)) {
                     $return = ['success' => false, 'error' => $res->error];
