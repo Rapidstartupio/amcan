@@ -10,6 +10,11 @@ use Carbon\Carbon;
 
 class LoanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index() {
 
         $transactions = Transaction::limit(3)->get();
