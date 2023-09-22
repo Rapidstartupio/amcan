@@ -18,8 +18,8 @@ class CreditHealthController extends Controller
     {
         $user = auth()->user();
         if($user->equifax_report_id){
-            return redirect()->away('https://uat.credithealth.equifax.ca/credit-health/overview?mn=999FZ03391');
-            //return view('dashboard.credit-health.iframe');
+            //return redirect()->away('https://uat.credithealth.equifax.ca/credit-health/overview?mn=999FZ03391');
+            return view('dashboard.credit-health.iframe');
         }
         return view('dashboard.credit-health.index');
     }
