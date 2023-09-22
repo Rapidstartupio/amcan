@@ -263,12 +263,19 @@
             })
             .catch(res => {
                 console.log(res);
-                if (res.data.error) {
+                searchBtn.disabled = false;
+                var error ="";
+                if(res.error){
+                    error = res.error;
+                }else if(res.data){
+                    error = res.data.error;
+                }
+                
+                if (error) {
                     setTimeout(function() {
-                        popToast('danger', res.data.error);
+                        popToast('danger', error);
                     }, 10);
                 }
-                searchBtn.disabled = false;
             });
 
     });

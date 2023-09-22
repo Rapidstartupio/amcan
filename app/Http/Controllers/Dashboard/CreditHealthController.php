@@ -18,7 +18,8 @@ class CreditHealthController extends Controller
     {
         $user = auth()->user();
         if($user->equifax_report_id){
-            return redirect()->away('https://uat.credithealth.equifax.ca/credit-health/overview?mn=999FZ03391');
+            //return redirect()->away('https://uat.credithealth.equifax.ca/credit-health/overview?mn=999FZ03391');
+            return view('dashboard.credit-health.iframe');
         }
         return view('dashboard.credit-health.index');
     }
@@ -26,61 +27,64 @@ class CreditHealthController extends Controller
     {
         $user = auth()->user();
         try {
-
-            $response = Http::withBasicAuth(env('EQUIFAX_CLIENT_ID'), env('EQUIFAX_SECRET_ID'))->asForm()->post('https://api.uat.equifax.ca/v2/oauth/token', [
-                'grant_type' => 'client_credentials',
-                'scope' => 'https://api.equifax.ca/v1/credithealth'
-            ]);
-            $res = $response->object();
-            if (isset($res->access_token)) {
-                $data = [
-                    'customerInfo' => [
-                        'memberNumber' => '999FZ03391',
-                        'securityCode' => '99'
-                    ],
-                    'personalInfo' => [
-                        'firstName' => $request->firstName,
-                        "lastName" =>  $request->lastName,
-                        'middleName' => ($request->middleName ?? ""),
-                        'dob' =>  $request->dob,
-                        'idpKey' => (strval($user->id) ?? ""),
-                        'address' => [
-                            "civicNumber" => ($request->civicNumber ?? ""),
-                            "streetName" => ($request->streetName ?? ""),
-                            "suite" => ($request->suite ?? ""),
-                            "city" => ($request->city ?? ""),
-                            "province" => ($request->province ?? ""),
-                            "postalCode" => ($request->postalCode ?? "")
-                        ]
-                    ]
-                ];
-                $response = Http::withToken($res->access_token)
-                    ->post('https://api.uat.equifax.ca/v1/credithealth/reportId/retrieve', $data);
+            if (env('EQUIFAX_CLIENT_ID') && env('EQUIFAX_SECRET_ID')) {
+                $response = Http::withBasicAuth(env('EQUIFAX_CLIENT_ID'), env('EQUIFAX_SECRET_ID'))->asForm()->post('https://api.uat.equifax.ca/v2/oauth/token', [
+                    'grant_type' => 'client_credentials',
+                    'scope' => 'https://api.equifax.ca/v1/credithealth'
+                ]);
                 $res = $response->object();
-                if (isset($res->data->reportId)) {
-                    $user->firstName = $request->firstName;
-                    $user->lastName = $request->lastName;
-                    $user->middleName = $request->middleName;
-                    $user->dob = $request->dob;
-                    $user->idpKey = strval($user->id);
-                    $user->streetName = $request->streetName;
-                    $user->suite = $request->suite;
-                    $user->city = $request->city;
-                    $user->province = $request->province;
-                    $user->postalCode = $request->postalCode;
-                    $user->equifax_report_id = $reportId;
-                    $user->save();
-                    return response()->json(['success' => true, 'data' => $res->data->reportId]);
-                } else if (isset($res->error)) {
-                    $return = ['success' => false, 'error' => $res->error];
-                    if (isset($res->error->details)) {
-                        $return['details'] = $res->error->details;
+                if (isset($res->access_token)) {
+                    $data = [
+                        'customerInfo' => [
+                            'memberNumber' => '999FZ03391',
+                            'securityCode' => '99'
+                        ],
+                        'personalInfo' => [
+                            'firstName' => $request->firstName,
+                            "lastName" =>  $request->lastName,
+                            'middleName' => ($request->middleName ?? ""),
+                            'dob' =>  $request->dob,
+                            'idpKey' => (strval($user->id) ?? ""),
+                            'address' => [
+                                "civicNumber" => ($request->civicNumber ?? ""),
+                                "streetName" => ($request->streetName ?? ""),
+                                "suite" => ($request->suite ?? ""),
+                                "city" => ($request->city ?? ""),
+                                "province" => ($request->province ?? ""),
+                                "postalCode" => ($request->postalCode ?? "")
+                            ]
+                        ]
+                    ];
+                    $response = Http::withToken($res->access_token)
+                        ->post('https://api.uat.equifax.ca/v1/credithealth/reportId/retrieve', $data);
+                    $res = $response->object();
+                    if (isset($res->data->reportId)) {
+                        $user->firstName = ($request->firstName ?? "");
+                        $user->lastName = ($request->lastName ?? "");
+                        $user->middleName = ($request->middleName ?? "");
+                        $user->dob = ($request->dob ?? "");
+                        $user->idpKey = strval($user->id);
+                        $user->streetName = ($request->streetName ?? "");
+                        $user->civicNumber = ($request->civicNumber ?? "");
+                        $user->suite = ($request->suite ?? "");
+                        $user->city = ($request->city ?? "");
+                        $user->province = ($request->province ?? "");
+                        $user->postalCode = ($request->postalCode ?? "");
+                        $user->equifax_report_id = $res->data->reportId;
+                        $user->save();
+                        return response()->json(['success' => true, 'data' => $res->data->reportId]);
+                    } else if (isset($res->error)) {
+                        $return = ['success' => false, 'error' => $res->error];
+                        if (isset($res->error->details)) {
+                            $return['details'] = $res->error->details;
+                        }
+                        return response()->json($return);
                     }
-                    return response()->json($return);
+                } else {
+                    //Access denied
+                    return response()->json(['success' => false, 'error' => 'Access denied'], 403);
                 }
-            } else {
-                //Access denied
-                return response()->json(['success' => false, 'error' => 'Access denied'], 403);
+                return response()->json(['success' => false, 'error' => 'Unauthorized'], 401);
             }
         } catch (\Exception $e) {
             //500 Server Error
