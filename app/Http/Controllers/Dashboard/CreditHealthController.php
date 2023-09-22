@@ -43,7 +43,7 @@ class CreditHealthController extends Controller
                         "lastName" =>  $request->lastName,
                         'middleName' => ($request->middleName ?? ""),
                         'dob' =>  $request->dob,
-                        'idpKey' => ($user->id ?? ""),
+                        'idpKey' => (strval($user->id) ?? ""),
                         'address' => [
                             "civicNumber" => ($request->civicNumber ?? ""),
                             "streetName" => ($request->streetName ?? ""),
@@ -62,7 +62,7 @@ class CreditHealthController extends Controller
                     $user->lastName = $request->lastName;
                     $user->middleName = $request->middleName;
                     $user->dob = $request->dob;
-                    $user->idpKey = $user->id;
+                    $user->idpKey = strval($user->id);
                     $user->streetName = $request->streetName;
                     $user->suite = $request->suite;
                     $user->city = $request->city;

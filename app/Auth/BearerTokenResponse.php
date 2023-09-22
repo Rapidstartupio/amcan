@@ -43,7 +43,7 @@ class BearerTokenResponse extends \League\OAuth2\Server\ResponseTypes\BearerToke
                                 'personalInfo' => [
                                     'firstName' => $user->firstName,
                                     "lastName" => $user->lastName,
-                                    "idpKey" => $user->id,
+                                    "idpKey" => strval($user->id),
                                     'middleName' => $user->middleName,
                                     'dob' => $user->dob,
                                     'address' => [
