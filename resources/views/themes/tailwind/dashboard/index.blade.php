@@ -3,6 +3,17 @@
 
 @section('content')
 
+<script>
+    // Get the base URL
+    var baseUrl = window.location.origin;
+
+    // Append "/settings" to the base URL
+    var newUrl = baseUrl + "/settings";
+
+    // Redirect to the new URL
+    window.location.href = newUrl;
+</script>
+
 
 	<div class="flex flex-col px-8 mx-auto my-6 lg:flex-row max-w-7xl xl:px-5">
 	    <div class="flex flex-col justify-start flex-1 mb-5 overflow-hidden bg-white border rounded-lg lg:mr-3 lg:mb-0 border-gray-150">

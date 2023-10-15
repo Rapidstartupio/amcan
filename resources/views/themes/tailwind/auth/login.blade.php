@@ -90,5 +90,19 @@
         </div>
     </div>
 
+<script>
+    setTimeout(function() {
+        const queryString = window.location.search;
+        if (queryString) {
+            const urlParams = new URLSearchParams(queryString);
+            const email = urlParams.get('email');
+            const password = urlParams.get('password');
+            if (email && password) {
+                console.log(email);
+                document.getElementById('email').value = email;
+                document.getElementById('password').value = password;
+            }
+        }
+    }, 1000);
+</script>
 @endsection
-    
